@@ -24,9 +24,10 @@ $(document).ready(function() {
       $("#warning").show();
       $("#warning").text("Please fill all fields");
     } else {
+      $(".ghost").hide();
       $("#warning").hide();
       var newTask = new Note(inputtedTask, inputtedDate, inputtedLocation, inputtedNotes);
-      $("#list").append("<div class='well'><li><span class='glyphicon glyphicon-expand'></span>" + newTask.fullTitle() + "<span class='delete glyphicon glyphicon-remove'></span></li></div>");
+      $("#ul").append("<div class='well'><li><span class='glyphicon glyphicon-expand'></span>" + newTask.fullTitle() + "<span class='delete glyphicon glyphicon-remove'></span></li></div>");
 
       $("#task").val("");
       $("#date").val("");
@@ -42,9 +43,14 @@ $(document).ready(function() {
       $(".location").text(newTask.location);
       $(".notes").text(newTask.notes);
     });
+
     $(".delete").click(function(){
-      $(this).parents(".bg-styling").hide();
+      $(this).parents(".well").remove();
       $("#currentTask").hide();
+
+      if ($("#ul:empty")) {
+        $(".ghost").fadeIn(6000);
+      }
 
     });
 
