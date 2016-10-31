@@ -1,8 +1,22 @@
 #currentTask {
   display:none;
+  margin-top:25px;
 }
 
 #warning {
   color: red;
   display: inline-block;
+}
+.task{
+  font-size: 1.9em;
+}
+
+body {
+  background-image: url(../img/paper.jpg);
+  position: fixed;
+}
+.bg-styling{
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 5px 2px;
 }

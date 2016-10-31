@@ -26,12 +26,12 @@ $(document).ready(function() {
     } else {
       $("#warning").hide();
       var newTask = new Note(inputtedTask, inputtedDate, inputtedLocation, inputtedNotes);
-      $("#list").append("<li><span class='taskName'>" + newTask.fullTitle() + "</span> <span class='delete'>  | Delete Task | </span></li>");
+      $("#list").append("<div class='bg-styling'><li><span class='taskName'>" + newTask.fullTitle() + "</span> <span class='delete'> &emsp; &emsp; &emsp; &emsp;| Delete Task | </span></li></div>");
 
       $("#task").val("");
       $("#date").val("");
       $("#location").val("");
-      $("#note").val("");
+      $("#notes").val("");
     }
 
     $(".taskName").last().click(function(){
@@ -43,7 +43,8 @@ $(document).ready(function() {
       $(".notes").text(newTask.notes);
     });
     $(".delete").click(function(){
-      $(this).hide();
+      $(this).parents(".bg-styling").hide();
+      $("#currentTask").hide();
 
     });
 
