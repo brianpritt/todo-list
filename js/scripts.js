@@ -9,8 +9,33 @@ function Note(task, date, location, notes) {
 Note.prototype.fullTitle = function(){
   return this.task + ", " + this.date;
 }
+
+function witchRight() {
+  $("#witch").animate({left: "+=500"}, 2000, "swing", witchDown);
+}
+function witchDown() {
+  $("#witch").animate({top: "-=500"}, 2000, "swing", witchLeft);
+}
+function witchLeft() {
+  $("#witch").animate({left: "-=500"}, 2000, "swing", witchUp);
+}
+function witchUp() {
+  $("#witch").animate({top: "+=500"}, 2000, "swing", witchRight);
+}
 // User Interface Logic
 $(document).ready(function() {
+  witchRight();
+
+  $("#witch").click(function() {
+    $("#witch").hide();
+    $("#witchButton").show();
+  });
+
+  $("#witchButton").click(function( ){
+    $("#witch").show();
+    $("#witchButton").hide();
+  });
+
   $("form").submit(function(event) {
     event.preventDefault();
 
