@@ -26,7 +26,7 @@ $(document).ready(function() {
     } else {
       $("#warning").hide();
       var newTask = new Note(inputtedTask, inputtedDate, inputtedLocation, inputtedNotes);
-      $("#list").append("<div class='bg-styling'><li><span class='taskName'>" + newTask.fullTitle() + "</span> <span class='delete'> &emsp; &emsp; &emsp; &emsp;| Delete Task | </span></li></div>");
+      $("#list").append("<div class='well'><li><span class='glyphicon glyphicon-expand'></span>" + newTask.fullTitle() + "<span class='delete glyphicon glyphicon-remove'></span></li></div>");
 
       $("#task").val("");
       $("#date").val("");
@@ -34,7 +34,7 @@ $(document).ready(function() {
       $("#notes").val("");
     }
 
-    $(".taskName").last().click(function(){
+    $(".glyphicon-expand").last().click(function(){
       $("#warning").hide();
       $("#currentTask").show();
       $(".task").text(newTask.task);
