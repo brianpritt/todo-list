@@ -9,7 +9,6 @@ function Note(task, date, location, notes) {
 Note.prototype.fullTitle = function(){
   return this.task + ", " + this.date;
 }
-
 // User Interface Logic
 $(document).ready(function() {
   $("form").submit(function(event) {
@@ -24,7 +23,7 @@ $(document).ready(function() {
       $("#warning").show();
       $("#warning").text("Please fill all fields");
     } else {
-      $(".ghost").hide();
+      $(".ghost").slideUp(6000);
       $("#warning").hide();
       var newTask = new Note(inputtedTask, inputtedDate, inputtedLocation, inputtedNotes);
       $("#ul").append("<div class='well'><li><span class='glyphicon glyphicon-expand'></span>" + newTask.fullTitle() + "<span class='delete glyphicon glyphicon-remove'></span></li></div>");
@@ -49,6 +48,7 @@ $(document).ready(function() {
       $("#currentTask").hide();
 
       if ($("#ul:empty")) {
+        console.log("ul is empty");
         $(".ghost").fadeIn(6000);
       }
 

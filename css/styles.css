@@ -31,9 +31,14 @@ body {
 }
 
 .well {
-  background-color: rgba(20, 253, 5, 1);
+  background-color: rgba(0, 0, 0, .3);
+  font-size: 1.4em;
 }
 
 .ghost {
   display: none;
+}
+
+img {
+  position: absolute;
 }
